@@ -1,3 +1,6 @@
+server:
+  port: ${PORT:9000}
+
 spring:
   r2dbc:
     url: r2dbc:pool:postgresql://aws-0-us-west-1.pooler.supabase.com:5432/postgres
@@ -11,6 +14,8 @@ spring:
         jwt:
           issuer-uri: https://securetoken.google.com/prs2-83d22
           jwk-set-uri: https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com
+
+
 
 
 

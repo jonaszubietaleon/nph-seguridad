@@ -1,4 +1,5 @@
-package pe.edu.vallegrande.vg_ms_casas.security;
+package pe.edu.vallegrande.vg_ms_casas.config;
+
 import java.util.Collection;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;

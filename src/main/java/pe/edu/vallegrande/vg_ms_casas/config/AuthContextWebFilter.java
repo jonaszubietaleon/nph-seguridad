@@ -1,11 +1,12 @@
-package pe.edu.vallegrande.vg_ms_casas.security;
+package pe.edu.vallegrande.vg_ms_casas.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.server.WebFilter;
 
 @Configuration
 public class AuthContextWebFilter {
-    @Bean
+     @Bean
     public WebFilter jwtTokenPropagationFilter() {
         return (exchange, chain) -> {
             String authHeader = exchange.getRequest().getHeaders().getFirst("Authorization");

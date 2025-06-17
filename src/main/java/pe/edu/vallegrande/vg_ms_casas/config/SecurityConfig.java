@@ -1,5 +1,4 @@
-package pe.edu.vallegrande.vg_ms_casas.security;
-
+package pe.edu.vallegrande.vg_ms_casas.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,22 +43,21 @@ public class SecurityConfig {
                         .permitAll()
 
                         // GET: accesible por USER y ADMIN
-                        .pathMatchers(HttpMethod.GET, "/homes")
+
+                        .pathMatchers(HttpMethod.GET, "/homes/**")
                         .hasAnyRole("USER", "ADMIN")
 
-                        .pathMatchers(HttpMethod.GET, "/NPH/type-kardex/list/**")
-                        .hasAnyRole("ADMIN")
+                        .pathMatchers(HttpMethod.GET, "/homes/active/**")
+                        .hasAnyRole("USER", "ADMIN")
 
                         // POST, PUT, DELETE: solo ADMIN
-                        .pathMatchers(HttpMethod.POST, "/NPH/type-kardex/create/**")
+                        .pathMatchers(HttpMethod.POST, "/homes/**")
                         .hasRole("ADMIN")
-                        .pathMatchers(HttpMethod.PUT, "/NPH/type-kardex/edit/**")
+                        .pathMatchers(HttpMethod.PUT, "/homes/**")
                         .hasRole("ADMIN")
-                        .pathMatchers(HttpMethod.PUT, "/NPH/type-kardex/delete-logical/**")
+                        .pathMatchers(HttpMethod.PUT, "/homes/deactivate/**")
                         .hasRole("ADMIN")
-                        .pathMatchers(HttpMethod.PUT, "/NPH/type-kardex/restore/**")
-                        .hasRole("ADMIN")
-                        .pathMatchers(HttpMethod.DELETE, "/NPH/type-kardex/delete-physical/**")
+                        .pathMatchers(HttpMethod.PUT, "/homes/restore/**")
                         .hasRole("ADMIN")
 
                         // Todo lo demás requiere estar autenticado
