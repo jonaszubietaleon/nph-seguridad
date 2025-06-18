@@ -34,12 +34,12 @@ public class HomeController {
         return homeService.update(id, home);
     }
 
-    @PutMapping("/{id}/deactivate")
+    @PutMapping("/deactivate/{id}")
     public Mono<Void> deactivate(@PathVariable Integer id) {
         return homeService.delete(id);
     }
 
-    @PutMapping("/{id}/restore")
+    @PutMapping("/restore/{id}")
     public Mono<Home> restore(@PathVariable Integer id) {
         return homeService.restore(id);
     }
